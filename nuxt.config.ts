@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import ElementPlus from "unplugin-element-plus/vite";
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: [
@@ -6,6 +8,10 @@ export default defineNuxtConfig({
     "@/assets/css/global.scss",
     "@/assets/cus-font/iconfont.css",
   ],
+  build: {
+    // 对该文件进行babel转义
+    transpile: ["element-plus/es"],
+  },
   vite: {
     css: {
       preprocessorOptions: {
@@ -14,6 +20,8 @@ export default defineNuxtConfig({
         },
       },
     },
+    // 实现自动导入
+    plugins: [ElementPlus({})],
   },
   app: {
     // 给所有页面的head添加seo信息
