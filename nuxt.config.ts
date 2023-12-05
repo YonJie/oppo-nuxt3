@@ -44,4 +44,6 @@ export default defineNuxtConfig({
       //   bodyAttrs:{style:"margin:0"}
     },
   },
+  // 配置nuxt3的扩展模块
+  modules: ["@pinia/nuxt"],
 });

@@ -17,6 +17,8 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "normalize.css": "^8.0.1"
+    "@pinia/nuxt": "^0.5.1",
+    "normalize.css": "^8.0.1",
+    "pinia": "^2.1.7"
   }
 }

@@ -1,7 +1,7 @@
 // 需额外添加的
 import type { Ref } from "vue";
 import type { UseFetchOptions, AsyncData } from "nuxt/dist/app";
-const BASE_URL = "https://codercba.com:9060/oppo-nuxt/api";
+const BASE_URL = "http://codercba.com:9060/oppo-nuxt/api";
 // const BASE_URL = "https://server.georgeh.com.cn/api";
 
 // 自定义的
