@@ -17,11 +17,13 @@
             <div class="name">扫码下载OPPO商场App</div>
           </div>
         </NuxtLink>
-        <NuxtLink to="/" class="link">
+        <NuxtLink to="/login" class="link" target="_blank">
           <i class="iconfont icon-user"></i>
           <span>登录</span>
         </NuxtLink>
-        <NuxtLink to="/" class="link"> <span>注册</span> </NuxtLink>
+        <NuxtLink to="/register" class="link" target="_blank">
+          <span>注册</span>
+        </NuxtLink>
         <NuxtLink to="/" class="link">
           <i class="iconfont icon-shoppingcart"></i>
           <span>购物车 </span>
