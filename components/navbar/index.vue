@@ -25,11 +25,11 @@
 <script setup lang="ts">
 import type { INavbar } from "~/store/home";
 
-export interface iProps {
+export interface IProps {
   navbars: INavbar[];
 }
 
-const props = withDefaults(defineProps<iProps>(), {
+const props = withDefaults(defineProps<IProps>(), {
   navbars: () => [],
 });
 

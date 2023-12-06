@@ -1,33 +1,77 @@
 <template>
   <div class="swiper">
-    <el-carousel height="150px">
-      <el-carousel-item v-for="item in 4" :key="item">
-        <h3 class="small justify-center" text="2xl">{{ item }}</h3>
+    <el-carousel
+      height="480px"
+      indicator-position="none"
+      @change="handleBannerChange"
+    >
+      <el-carousel-item v-for="item in banners" :key="item.id">
+        <img class="pic-str" :src="item.picStr" alt="oppo手机" />
       </el-carousel-item>
     </el-carousel>
+    <ul class="dots">
+      <template v-for="(item, index) in banners" :key="item.id">
+        <li :class="['dot', currentIndex === index ? 'active' : '']"></li>
+      </template>
+    </ul>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ElCarousel, ElCarouselItem } from "element-plus";
+import type { IBanner } from "~/store/home";
+
+// 接收传入prop
+export interface IProps {
+  banners: IBanner[];
+}
+const props = withDefaults(defineProps<IProps>(), {
+  banners: () => [],
+});
+
+// 自定义轮播图的指示器
+let currentIndex = ref<number>(0);
+function handleBannerChange(index: number) {
+  currentIndex.value = index;
+}
 </script>
 
 <style lang="scss" scoped>
 .swiper {
-  .el-carousel__item h3 {
-    color: #475669;
-    opacity: 0.75;
-    line-height: 150px;
-    margin: 0;
+  padding-top: 36px;
+  position: relative;
+  .pic-str {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+
+  .dots {
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
     text-align: center;
-  }
 
-  .el-carousel__item:nth-child(2n) {
-    background-color: #99a9bf;
-  }
-
-  .el-carousel__item:nth-child(2n + 1) {
-    background-color: #d3dce6;
+    .dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      box-sizing: border-box;
+      border-radius: 10px;
+      margin-right: 10px;
+      background-color: #fff;
+      opacity: 0.8;
+    }
+    .active {
+      background-color: transparent;
+      border: 2px solid #fff;
+      width: 12px;
+      height: 12px;
+      position: relative;
+      top: 1px;
+    }
   }
 }
 </style>
