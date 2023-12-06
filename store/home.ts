@@ -30,7 +30,7 @@ export interface IProductDetail {
   title?: string;
   url?: string;
   link?: string;
-  priceInfo: IPriceInfo;
+  priceInfo?: IPriceInfo;
   activityList?: IActivityList[];
 }
 
