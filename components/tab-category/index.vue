@@ -1,7 +1,7 @@
 <template>
   <div class="tab-category">
     <template v-for="item in categorys" :key="item.id">
-      <div class="category-item" @click="handleItemClick(item)">
+      <div class="category-item" @click="handleProductClick(item)">
         <img class="pic-str" :src="item.picStr" alt="" />
         <div class="title">{{ item.title }}</div>
       </div>
@@ -24,7 +24,7 @@ const props = withDefaults(defineProps<IProps>(), {
 const emits = defineEmits<{
   (e: "itemClick", item: ICategory): void;
 }>();
-function handleItemClick(item: ICategory) {
+function handleProductClick(item: ICategory) {
   emits("itemClick", item);
 }
 </script>
